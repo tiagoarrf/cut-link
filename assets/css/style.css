@@ -1,40 +1,58 @@
-
-html body{
+html body {
     background: linear-gradient(to right, #151522, #080911);
     margin: 0 auto;
     height: 100vh;
+    color: #b6c1ca;
 }
 
-body{
-    color: #b6c1ca;
+body {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
 
-form{
-    border: 2px solid wheat;
-    padding: 2rem;
+#name {
+    margin-bottom: 3rem;
+    font-size: calc(3vw + 2rem);
 }
 
-.center{
-    height: 2rem;
+.box{
+    border: 2px solid rgb(179, 24, 24);
+    width: calc(50vw + 6rem);
+    background-color: white;
 }
 
-#input-link{
-    font-size: large;
+input {
+    background-color:white;
+    font-size: calc(2vw + 1rem);
+    min-height: 2rem;
+    height: calc(2vw + 1rem);
+    width: calc(50vw + 3rem);
+    transform: translateX(-1.3rem);
+    outline: none;
+    border: 0;
+}
+
+#show-copied {
+    font-size: calc(2vw + 1rem);
+}
+
+#bt-submit {
+    padding: 0.9rem 3rem;
+    border: 2px solid rgb(94, 90, 83);
+    background-color: orangered;
     border-radius: 5px;
-    height: 100%;
+    min-width: 6rem;
+    margin: 1rem;
 }
 
-#bt-submit{
-    padding: 0.8rem 2rem;
-    border: 1px solid red;
-    margin: 1rem 3rem 1rem 1rem;
-}
-
-#bt-copy{
-    height: 100%;
-    border: 1px solid red;
+#bt-copy {
+    background-color: #5a5555;
+    min-height: 2.12rem;
+    height: calc(2.2vw + 1rem);
+    border: 0;
+    cursor: pointer;
+    position: absolute;
+    transform: translateX(-1.3rem);
 }

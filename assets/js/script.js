@@ -1,32 +1,39 @@
 
-var form = document.querySelector("form")
-var btCopy = document.querySelector("#bt-copy")
-var showCopied = document.querySelector("#linkCuted")
+const btSubmit = document.querySelector("#bt-submit")
+const btCopy = document.querySelector("#bt-copy")
+const input = document.querySelector("input")
+const showCopied = document.querySelector("#show-copied")
 
-
-form.onsubmit = () => {
-    alert("okok")
-    alert(form.elements.item(0).value)
-    form.elements.item(0).value = "note"
+btSubmit.onclick = () => {
+    getShort(input.value)
 }
 
 btCopy.onclick = () => {
-    form.elements.item(0).select();
-    form.elements.item(0).setSelectionRange(0, 99999);
-    navigator.clipboard.writeText(form.elements.item(0).value);
-    alert("Copied the text: " + form.elements.item(0).value);
-    showCopied.innerHTML = form.elements.item(0).value + " as ben Copied!"
-    getShort()
+    if (input.value != '') {
+        input.select();
+        input.setSelectionRange(0, 99999);
+        navigator.clipboard.writeText(input.value);
+        showCopied.innerHTML = "(" + input.value + ") as ben Copied!"
+    }
+    input.value = ''
 }
 
-
-function getShort() {
-    fetch('https://api-ssl.bitly.com/v4/shorten', {
-        method: 'POST',
+function getShort(originalUrl) {
+    fetch("https://api.rebrandly.com/v1/links", {
+        method: "POST",
         headers: {
-            'Authorization': 'Bearer {7b0c2aef0f81f5001ac15d47b4ccc38232f9a904}',
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json",
+            "apiKey": "647d6dda85f9460c840da86b3b125cc1"
         },
-        body: JSON.stringify({ "long_url": "https://dev.bitly.com", "domain": "bit.ly", "group_guid": "Ba1bc23dE4F" })
-    });
+        body: JSON.stringify({ destination: originalUrl, domain: { fullName: "rebrand.ly" } })
+    })
+        .then(response => response.json())
+        .then(json => {
+            if (!json.message) {
+                showCopied.innerHTML = ''
+                input.value = json.shortUrl;
+            } else {
+                showCopied.innerHTML = "(" + json.message + ")"
+            }
+        });
 }
