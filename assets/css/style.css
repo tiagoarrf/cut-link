@@ -18,6 +18,11 @@ body {
     font-size: calc(3vw + 2rem);
 }
 
+#cut-name{
+    color: #ff4500;
+    margin-right: 1rem;
+}
+
 .box {
     border: 3px solid #ff4500;
     width: calc(50vw + 6rem);
@@ -43,7 +48,7 @@ input {
 #bt-submit {
     font-size: calc(1vw + 1rem);
     font-weight: bolder;
-    color: #151522;
+    color: #b6c1ca;
     padding: 0.5rem 3rem;
     border: 3px solid #b6c1ca;
     background-color: #ff4500;
