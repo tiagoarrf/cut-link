@@ -13,7 +13,7 @@ btCopy.onclick = () => {
         input.select();
         input.setSelectionRange(0, 99999);
         navigator.clipboard.writeText(input.value);
-        showCopied.innerHTML = "(" + input.value + ") as ben Copied!"
+        showCopied.innerHTML = "(" + input.value + ") Copied!"
     }
     input.value = ''
 }
