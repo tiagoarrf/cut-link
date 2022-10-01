@@ -41,7 +41,7 @@ input {
 }
 
 #show-copied {
-    font-size: calc(2vw + 1rem);
+    font-size: calc(1vw + 0.8rem);
     margin-bottom: 1rem;
 }
 
